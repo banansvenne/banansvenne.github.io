@@ -1,2 +1,2 @@
 # banansvenne.github.io
-Personal website
+Personal website for apps and articles
