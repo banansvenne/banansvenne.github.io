@@ -1,28 +1,65 @@
 body{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 2fr) 1fr;
+    min-height: 100vh;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-gap: 20px;
     grid-template-areas: 
-    "header header header"
-    "mbody mbody mbody"
-    "mbody mbody mbody"
-    "mbody mbody mbody"
-    "footer footer footer"
+    ". header ."
+    ". mbody ."
+    ". footer . ";
+    background-color: azure;
 }
-
+/*av stuff*/
 nav{
     grid-area: header;
-    background-color: antiquewhite;
+    background-color: rgb(238, 238, 238);
+    border: 2px solid black;
+    align-items: center;
 }
 
+.nav-grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: ". elem .";
+}
+
+.nav-grid > ul{
+    grid-area: elem;
+}
+
+.nav-grid > ul > li{
+    display: inline-block;
+    padding: 1px;
+    border: 2px solid black;
+    background-color: beige;
+}
+
+.nav-grid > ul > li a{
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    padding: 9px;
+}
+
+
+
+/*Main body*/
 main{
     grid-area: mbody;
-    background-color: antiquewhite;
+    background-color: rgb(238, 238, 238);
+    border: 2px solid black;
 }
 
+/*Footer*/
 footer{
     grid-area: footer;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    background-color: rgb(238, 238, 238);
 }
 
