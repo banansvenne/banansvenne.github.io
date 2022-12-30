@@ -6,77 +6,57 @@
 @media (min-width:1025px) {
     body{
         margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    /*av stuff*/
+    .main-grid{
+        margin: 0;
         display: grid;
         min-height: 100vh;
         grid-template-columns: 5vw repeat(3,1fr) 5vw;
         grid-template-rows: 5vh repeat(3,1fr) 5vh;
         grid-template-areas: 
              ". . . . ."
-        ". mbody mbody header ."
-        ". mbody mbody header ."
-        ". mbody mbody footer ."
+        ". one two two ."
+        ". one three four ."
+        ". five five four ."
              ". . . . .";
         background-color: azure;
     }
-    /*av stuff*/
-    nav{
-        grid-area: header;
-        background-color: rgb(238, 238, 238);
-        border: var(--main-grid-elem-border) solid black;
-        align-items: center;
-    }
-    
-    .nav-grid{}
-    
-    .nav-grid > ul{
-        display:flex;
-        justify-content: center;
-    }
-    
-    .nav-grid > ul > li{
-        list-style-type: none;
-        padding: 0px;
-        margin: 0px;
-    }
-    
-    
-    .nav-grid > ul > li a{
-        text-decoration: none;
-        color: #000000;
-        display: block;
-        padding: 9px;
-        margin: 2px;
-        background-color: beige;
-        border: 1px solid black;
-    }
-    
-    .nav-grid > ul > li a:hover{
-        background-color: rgb(168, 168, 168);
-        box-shadow: 1px 1px rgba(0,0,0,0.5);
-    }
-    
-    /*Main body*/
-    main{
-        grid-area: mbody;
-        background-color: rgb(238, 238, 238);
-        border: var(--main-grid-elem-border) solid black;
+
+    .mg{
     }
 
-    
-    /*Footer*/
-    footer{
-        grid-area: footer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: var(--main-grid-elem-border) solid black;
-        background-color: rgb(238, 238, 238);
-    
+    .one{
+        grid-area: one;
+        background-color: rgb(240, 143, 64);
     }
-    
-    footer > span{
-        font-size: 1.1rem;
+    .two{
+        grid-area: two;
+        background-color: rgb(74, 241, 144);
     }
+    .three{
+        grid-area: three;
+        background-color: rgb(248, 104, 104);
+    }
+    .four{
+        grid-area: four;
+        background-color: rgb(248, 248, 98);
+    }
+    .five{
+        grid-area: five;
+        background-color: rgb(241, 129, 236);
+    }
+    /* .exp{
+        height: 400px;
+        width:400px;
+        background-color: black;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 400px 0 0 0;
+    } */
 
 }
 /*For small screens ans laptops*/
