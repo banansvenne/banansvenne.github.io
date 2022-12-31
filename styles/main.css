@@ -5,119 +5,174 @@
 /*Desktops and above*/
 @media (min-width:1025px) {
     body{
-        margin: 0;
-        padding: 0;
-        position: relative;
-        background-color: whitesmoke;
-    }
-    /*av stuff*/
-    .main-grid{
-        margin: 0;
-        display: grid;
-        min-height: 100vh;
-        grid-template-columns: 5vw repeat(3, minmax(330px, 351px)) 5vw;
-        grid-template-rows: 5vh repeat(2,minmax(330px, 351px)) 5vh;
-        grid-template-areas: 
-            ". . . . ."
-        ". one two three ."
-        ". four five six ."
-            ". . . . .";
-        background-color: rgb(205, 250, 250);
-        justify-content: center;
-        align-content: center;
-
-    }
-    /*All boxes*/
-    .mg{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    /*Gridbox one*/
-    .one{
-        grid-area: one;
-        background-color: rgb(255,109,84);
-        border-radius: 200px 0 0 0;
-        position: relative;
-        border-left:4px solid white;
-        border-top: 4px solid white;
-    }
-    #g-one-semi-circle{
-        height: 75%;
-        width: 75%;
-        background-color: rgb(236, 236, 236);
-        border-top: 4px solid white;
-        border-left: 4px solid white;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        border-radius: 150px 0 0 0;
-        
-
-    }
-     /*Gridbox two*/
-    .two{
-        grid-area: two;
-        background-color: rgb(167, 230, 193);
-        position: relative;
-        border-top: 4px solid white;
-    }
-    .triangle{
-    }
-    }
-    .two-three-top{
-        position: absolute;
-        height: 25%;
-        width: 100%;
-        bottom: 0;
-        background-color: rgb(255,109,84);
-        border-bottom: 4px solid white;
-        top: 0;
-        box-sizing: border-box;
-        
-    }
-     /*Gridbox three (except two-three-top, see above)*/
-    .three{
-        grid-area: three;
-        background-color: rgb(248, 70, 70);
-        position: relative;
-        border-top: 4px solid white;
-    }
-     /*Gridbox four*/
-    .four{
-        grid-area: four;
-        background-color: rgb(66,41,45);
-        border-left: 4px solid white;
-        border-radius: 0 0 0 10px;
-    }
-    .circle{
-        height: 100%;
-        width: 100%;
-        border-radius:50%;
-        background-color: rgb(100,119,255);
-        position: relative;
-    }
-
-    .circle > div {
-        height: 50%;
-        width: 50%;
-        border-radius:50%;
-        background-color: white;
-        position: absolute;
-        top: 25%;
-        left: 25%;
-    }
-     /*Gridbox five*/
-    .five{
-        grid-area: five;
-        background-color: rgb(241, 129, 236);
-    }
-     /*Gridbox six*/
-    .six{
-        grid-area: six;
-        background-color: rgb(31, 88, 211);
-    }
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: whitesmoke;
 }
+/*av stuff*/
+.main-grid{
+    margin: 0;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 5vw repeat(3, minmax(330px, 351px)) 5vw;
+    grid-template-rows: 5vh repeat(2,minmax(330px, 351px)) 5vh;
+    grid-template-areas: 
+        ". . . . ."
+    ". one two three ."
+    ". four five six ."
+        ". . . . .";
+    background-color: rgb(205, 250, 250);
+    justify-content: center;
+    align-content: center;
+
+}
+/*All boxes*/
+.mg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*Gridbox one*/
+.one{
+    grid-area: one;
+    background-color: rgb(255,109,84);
+    border-radius: 200px 0 0 0;
+    position: relative;
+    border-left:4px solid white;
+    border-top: 4px solid white;
+}
+#g-one-semi-circle{
+    height: 75%;
+    width: 75%;
+    background-color: white;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    border-bottom: 4px solid white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 150px 0 0 0;
+    
+
+}
+ /*Gridbox two*/
+.two{
+    grid-area: two;
+    background-color: white;
+    position: relative;
+}
+.triangle{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    background-color: rgb(66,41,45);
+    clip-path: polygon(1.5% 0, 99% 0, 99% 98.5%);
+
+}
+.triangle + div{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    background-color: white;
+    clip-path: polygon(1% 1%, 1% 99%, 98% 99%);
+
+}
+
+
+.two-three-top{
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(255,109,84);
+    border-bottom: 4px solid white;
+    border-top: 4px solid white;
+    top: 0;
+    box-sizing: border-box;
+    
+}
+ /*Gridbox three (except two-three-top, see above)*/
+.three{
+    grid-area: three;
+    background-color: white;
+    position: relative;
+    border-radius: 0 50px 0 0;
+    background: radial-gradient(at 0 100%, rgb(255, 255, 255), rgb(205, 250, 250) 70%)
+}
+.three::before{
+    content: '';
+    width: 100%;
+    height: 25%;
+    background-color:rgb(255,109,84);
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    border-radius: 0 11px 0 0;
+}
+.three > .two-three-top{
+    border-radius: 0 10px 0 0;
+}
+#half-circle-grid-three{
+    height: 73.5%;
+    width: 99%;
+    position: absolute;
+    background-color: rgb(100,119,255);
+    top: 25%;
+    right: 0;
+    border-radius: 0 0 80% 0;
+}
+ /*Gridbox four*/
+.four{
+    grid-area: four;
+    background-color: rgb(255,109,84);
+    border-left: 4px solid white;
+    border-radius: 0 0 0 10px;
+    border-bottom: 4px solid white;
+}
+.circle{
+    height: 100%;
+    width: 100%;
+    border-radius:50%;
+    background-color: rgb(100,119,255);
+    position: relative;
+}
+
+.circle > div {
+    height: 50%;
+    width: 50%;
+    border-radius:50%;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+ /*Gridbox five*/
+.five{
+    grid-area: five;
+    background-color: rgb(66,41,45);
+    border-bottom: 4px solid white;
+}
+ /*Gridbox six*/
+.six{
+    grid-area: six;
+    background: radial-gradient(at 0 0, white, rgb(205, 250, 250) 70%);
+    position: relative;
+}
+.six > div {
+    position: absolute;
+    background-color: rgb(100,119,255);
+    border-radius: 0 50% 50% 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    bottom: 0;
+    border-bottom: 4px solid white;
+}
+}
+    
+
 
 /* 
 .exp{
