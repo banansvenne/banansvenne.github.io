@@ -1,0 +1,103 @@
+@use '../variables-and-mixins' as *;
+@mixin nav(){
+    @include main_grid_template();
+    .one{
+        @include grid_base(one, $color_one);
+        border-radius: 200px 0 0 0;
+        border-top: 4px solid white;
+        border-left: 4px solid white;
+        &::before{//Semi circle in grid-box one
+            @include before_after_base(75%, 75%, white);
+            box-sizing: content-box;
+            bottom: 0;
+            right:0;
+            border-radius: 150px 0 0 0;
+            border-top: 4px solid white;
+            border-left: 4px solid white;
+    
+        }
+    }
+    .two{
+        @include grid_base(two, rgb(255, 255, 255));
+        border-top: 4px solid white;
+        &::before{//Head for box two
+            @include before_after_base(100%, 25%, $color_one);
+            border-bottom: 4px solid white;
+            top: 0;
+        }
+        div{//Triangle in box 2
+            position: absolute;
+            box-sizing: border-box;
+            background-color: white;
+            bottom: 0;
+            height: 75%;
+            width: 100%;
+            border-right: $inner_box_gap solid white;
+            &::before{
+                @include before_after_base(100%, 100%, $color_three);
+                border-radius: 5px 8px 100px 0 / 100px 8px 10px 0;
+                bottom: 0;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px));
+    
+            }
+        }
+    }
+    .three{
+        @include grid_base(three, white);
+        border-radius: 0 10px 0 0;
+        border-top: 4px solid white;
+        background: 
+        radial-gradient(at 0 100%, white, transparent 50%),
+        linear-gradient(to right, white 5%, transparent 5% 50%);
+        &::before{//Head for box three
+            @include before_after_base(100%, 25%, $color_one);
+            border-radius: 0 10px 0 0;
+            border-bottom: 4px solid white;
+            top:0;
+        }
+        &::after{//Semi circle for box three
+            @include before_after_base(100%, calc(75% - 6px), $color_two);
+            border-left: $inner_box_gap solid white;
+            bottom: 6px;
+            right:0;
+            border-radius: 8px 0 150px 8px;
+        }
+    }
+    .four{
+        @include grid_base(four, white);
+        border-radius: 0 0 0 10px;
+        border-left: 4px solid white;
+        &::before{
+            @include before_after_base(25%, 100%, $color_one);
+            border-radius: 0 0 0 10px;
+            border-right: 4px solid white;
+            bottom: 0;
+            left: 0;
+        }
+        &::after{
+            @include before_after_base(75%, 100%, $color_three);
+            border-radius: 8px 0 0 0;
+            right:0;
+        }
+    }
+    .five{
+        @include grid_base(five, $color_three);
+        border-right: $inner_box_gap solid white;
+        background: linear-gradient(to right, $color_three 95%, white 95% 100%);
+        &::before{
+            @include before_after_base(100%, 100%, $color_two);
+            border-radius: 50% 8px 0 50%;
+        }
+    }
+    .six{
+        @include grid_base(six, null);
+        background: radial-gradient(at 0 0, white, transparent 50%);
+        &::before{
+            @include before_after_base(100%, 100%, $color_two);
+            border-radius: 8px 50% 50% 0;
+            border-left: $inner_box_gap solid white;
+            right:0;
+        }
+    }
+    
+}

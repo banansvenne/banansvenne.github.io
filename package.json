@@ -1,0 +1,22 @@
+{
+  "name": "banansvenn.github.io",
+  "version": "1.0.0",
+  "description": "Banansvenn Web Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "watch-hp": "sass --watch main/styles/sass/home-page/hp-main.scss main/styles/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banansvenne/banansvenne.github.io"
+  },
+  "author": "Banansvenne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/banansvenne/banansvenne.github.io/issues"
+  },
+  "homepage": "https://github.com/banansvenne/banansvenne.github.io#readme",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}
