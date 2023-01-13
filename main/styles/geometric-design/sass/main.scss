@@ -1,0 +1,17 @@
+@use './body/design' as element;
+@use './variables-and-mixins' as var;
+
+*{
+    padding: 0;
+    margin: 0;
+    background-color: var.$body_background;;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+}
+
+
+body{
+    @include element.main();
+}
+
+

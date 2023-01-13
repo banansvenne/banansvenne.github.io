@@ -1,0 +1,156 @@
+@use '../variables-and-mixins' as *;
+
+@mixin main(){
+    @include grid_template();
+    grid-template-areas: 
+            '. . . . .'
+        '. one two three .'
+        '. four five six .'
+            '. . . . .';
+    .one{
+        @include grid_base(one, $color_one);
+        border-radius: 200px 0 0 0;
+        border-top: 4px solid $color_border;
+        border-left: 4px solid $color_border;
+        &::before{//Semi circle in grid-box one
+            @include before_after_base(75%, 75%, $color_four);
+            box-sizing: content-box;
+            bottom: 0;
+            right:0;
+            border-radius: 150px 0 0 0;
+            border-top: 4px solid $color_border;
+            border-left: 4px solid $color_border;
+        }
+        a{
+            background-color: transparent;
+            display:inline-block;
+            width:fit-content;
+            height:fit-content;
+            position: absolute;
+            right: 20%;
+            top: 10%;
+            z-index: 1;
+        }
+    }
+    .two{
+        @include grid_base(two, rgb(255, 255, 255));
+        border-top: 4px solid $color_border;
+        &::before{//Head for box two
+            @include before_after_base(100%, 25%, $color_one);
+            border-bottom: 4px solid $color_border;
+            top: 0;
+        }
+        div{//Triangle in box 2
+            position: absolute;
+            box-sizing: border-box;
+            background-color: $color_four;
+            bottom: 0;
+            height: 75%;
+            width: 100%;
+            border-right: $inner_box_gap solid $color_border;
+            &::before{
+                @include before_after_base(100%, 100%, $color_three);
+                border-radius: 5px 8px 100px 0 / 100px 8px 10px 0;
+                bottom: 0;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px));
+    
+            }
+        }
+        a{
+            background-color: transparent;
+            position: absolute;
+            right: -8%;
+            top: 15%;
+            z-index: 1;
+        }
+    }
+    .three{
+        @include grid_base(three, null);
+        border-radius: 0 20px 0 0;
+        border-top: 4px solid $color_border;
+        background: 
+        radial-gradient(at 100% 0, $color_one 10%, transparent 10% 10%),
+        radial-gradient(at 0 100%, $color_border, transparent 50%),
+        linear-gradient(to right, $color_border 5%, transparent 5% 50%);
+        &::before{//Head for box three
+            @include before_after_base(100%, 25%, $color_one);
+            border-radius: 0 20px 0 0;
+            border-bottom: 4px solid $color_border;
+            top:0;
+        }
+        &::after{//Semi circle for box three
+            @include before_after_base(100%, calc(75% - 6px), $color_two);
+            border-left: $inner_box_gap solid $color_border;
+            bottom: 6px;
+            right:0;
+            border-radius: 8px 0 150px 8px;
+        }
+        a{
+            background-color: transparent;
+            position: absolute;
+            right: -4%;
+            top: -5%;
+        }
+    }
+    .four{
+        @include grid_base(four, $color_one);
+        border-left: 4px solid $color_border;
+        border-radius: 0 0 0 20px;
+        &::before{
+            @include before_after_base(75%, 100%, white);
+            box-sizing: content-box;
+            border-left: 4px solid $color_border;
+            right: 0;
+        }
+        &::after{
+            @include before_after_base(75%, 100%, $color_three);
+            box-sizing: content-box;
+            border-left: 4px solid $color_border;
+            right:0;
+            border-radius: 8px 0 0 0;
+            z-index: 2;
+        }
+         
+
+    }
+    .five{
+        @include grid_base(five, $color_three);
+        border-right: $inner_box_gap solid $color_border;
+        &::before{
+            @include before_after_base(100%, 100%, $color_two);
+            border-radius: 50% 8px 0 50%;
+        }
+    }
+    .six{
+        @include grid_base(six, null);
+        background: radial-gradient(at 0 0, $color_border, transparent 50%);
+        &::before{
+            @include before_after_base(100%, 100%, $color_two);
+            border-radius: 8px 50% 100px 0;
+            border-left: $inner_box_gap solid $color_border;
+            right:0;
+        }
+        
+    }
+    // .foot_left{
+    //     @include grid_base(foot_left, null);
+    //     border-left: 4px solid $color_border;
+    //     &::before{
+    //         @include before_after_base(12.5%, 100%, $color_one);
+    //         border-right: 4px solid $color_border;
+    //         left:0; 
+    //     }
+    //     &::after{
+    //         @include before_after_base(87.5%, 100%, $color_four);
+    //         border-top: 4px solid $color_border;
+    //         right:0;
+    //     }
+
+    // }
+    // .foot_right{
+    //     @include grid_base(foot_right, $color_four);
+    //     border-top: 4px solid $color_border;
+         
+    //     }
+     
+}
