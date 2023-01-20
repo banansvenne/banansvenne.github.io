@@ -1,18 +1,18 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
   background-color: #e7ecef;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 15vh 290vh;
-  grid-template-areas: "nav" "cBody";
+  grid-template-rows: minmax(110px, 15vh) auto 10vh;
+  grid-template-areas: "navb" "cBody" "footer";
 }
 
 nav {
-  grid-area: nav;
+  grid-area: navb;
   background-color: #6096ba;
 }
 nav header {
@@ -43,15 +43,18 @@ nav ul li a:hover {
 
 #content-body {
   grid-area: cBody;
-  padding-left: 25px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
 }
 #content-body article {
-  max-width: 80%;
+  max-width: 1200px;
   padding-bottom: 35vh;
-  font-size: 1.2rem;
+  margin: 20px;
+  font-size: 1.5rem;
   letter-spacing: 0.2px;
-  line-height: 25px;
+  line-height: 30px;
 }
 #content-body article h2 {
   font-size: 2rem;
@@ -60,17 +63,17 @@ nav ul li a:hover {
 }
 
 footer {
+  grid-area: footer;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
   background-color: #6096ba;
 }
 footer a {
   font-size: 2rem;
   text-decoration: none;
   letter-spacing: 8px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 footer a:hover {
   color: #e7ecef;
